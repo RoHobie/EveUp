@@ -1,41 +1,42 @@
 package com.eveup.tickets.domain;
-
 import jakarta.persistence.*;
+import jakarta.persistence.criteria.Fetch;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "ticket_types")
+@Table(name = "tickets")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TicketType {
+public class Ticket {
 
     @Id
     @Column(name = "id", nullable = false, updatable = false)
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(name = "name", nullable = false)
-    private Double price;
-
-    @Column(name = "total_available")
-    private Integer totalAvailable;
+    @Column(name = "status", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private TicketStatusEnum status;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "event_id")
-    private Event event;
+    @JoinColumn(name = "ticket_type_id")
+    private TicketType ticketType;
 
-    @OneToMany(mappedBy = "ticketType", cascade = CascadeType.ALL)
-    private List<Ticket> tickets = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "buyer_id")
+    private User buyer;
+
+    // TODO: Validation
+
+    // TODO: QR Code
 
     @CreatedDate
     @Column(name = "created_at", updatable = false, nullable = false)
@@ -44,4 +45,5 @@ public class TicketType {
     @LastModifiedDate
     @Column(name = "updated_at", updatable = true, nullable = false)
     private LocalDateTime updatedAt;
+
 }
