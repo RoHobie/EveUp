@@ -54,5 +54,4 @@ public class TicketValidation {
     public int hashCode() {
         return Objects.hash(id, status, createdAt, updatedAt);
     }
-
 }
