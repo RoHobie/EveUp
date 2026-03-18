@@ -1,6 +1,6 @@
 package com.eveup.tickets.filters;
 
-import com.eveup.tickets.domain.User;
+import com.eveup.tickets.domain.entities.User;
 import com.eveup.tickets.repositories.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
