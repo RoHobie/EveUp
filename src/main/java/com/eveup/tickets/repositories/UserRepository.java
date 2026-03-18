@@ -1,6 +1,6 @@
 package com.eveup.tickets.repositories;
 
-import com.eveup.tickets.domain.User;
+import com.eveup.tickets.domain.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
