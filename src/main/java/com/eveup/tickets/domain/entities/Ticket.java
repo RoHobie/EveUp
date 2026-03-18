@@ -1,6 +1,5 @@
-package com.eveup.tickets.domain;
+package com.eveup.tickets.domain.entities;
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.Fetch;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;

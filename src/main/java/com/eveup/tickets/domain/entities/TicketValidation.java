@@ -1,4 +1,4 @@
-package com.eveup.tickets.domain;
+package com.eveup.tickets.domain.entities;
 
 import jakarta.persistence.*;
 import lombok.*;

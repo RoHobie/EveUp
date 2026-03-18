@@ -1,4 +1,4 @@
-package com.eveup.tickets.domain;
+package com.eveup.tickets.domain.entities;
 
 public enum EventStatusEnum {
     DRAFT, PUBLISHED, CANCELLED, COMPLETED

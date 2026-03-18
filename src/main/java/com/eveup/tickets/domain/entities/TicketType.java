@@ -1,4 +1,4 @@
-package com.eveup.tickets.domain;
+package com.eveup.tickets.domain.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -34,6 +34,7 @@ public class TicketType {
     @Column(name = "total_available")
     private Integer totalAvailable;
 
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "event_id")
     private Event event;
@@ -53,11 +54,11 @@ public class TicketType {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         TicketType that = (TicketType) o;
-        return Objects.equals(id, that.id) && Objects.equals(price, that.price) && Objects.equals(totalAvailable, that.totalAvailable) && Objects.equals(createdAt, that.createdAt) && Objects.equals(updatedAt, that.updatedAt);
+        return Objects.equals(id, that.id) && Objects.equals(price, that.price) && Objects.equals(description, that.description) && Objects.equals(totalAvailable, that.totalAvailable) && Objects.equals(createdAt, that.createdAt) && Objects.equals(updatedAt, that.updatedAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, price, totalAvailable, createdAt, updatedAt);
+        return Objects.hash(id, price, description, totalAvailable, createdAt, updatedAt);
     }
 }
